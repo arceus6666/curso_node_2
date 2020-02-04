@@ -1,0 +1,9 @@
+mime type
+datos de request en cabecera
+
+axios -> para request http
+
+promises mejor que callbacks (proyecto2)
+
+entrada: autenticacion
+acciones: autorizacion
