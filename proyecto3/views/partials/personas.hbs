@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each personas}}
+    <tr>
+      <td>{{mayusculas nombre}}</td>
+      <td>{{mayusculas apellido}}</td>
+    </tr>
+    {{/each}}
+</table>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Clima</title>
+  {{> styles}}
+</head>
+
+<body>
+  <div class="container">
+    {{> navbar}}
+    <h1>El clima</h1>
+    <div class="card" style="width: 18rem;">
+      <img
+        src="https://services.meteored.com/img/article/el-tiempo-y-el-clima-en-2019-que-ha-sucedido-mundialmente-221611-1_768.jpg"
+        class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{ciudad}}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"></li>
+        <li class="list-group-item">Temperatura: {{temperatura}}ºC</li>
+        <li class="list-group-item">Sensación Térmica: {{sensacion}}</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
