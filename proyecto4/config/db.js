@@ -6,7 +6,8 @@ dotenv.config();
 mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useFindAndModify: true
 }).then(
   res => console.log('Conectado a la base de datos')
 ).catch(
