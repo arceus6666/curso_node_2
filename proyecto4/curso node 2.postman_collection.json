@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e4b5ac02-2647-4347-b47a-8bdc37fa81c6",
+		"_postman_id": "4f1e9942-11d1-4ae1-9787-601cfa2e19e5",
 		"name": "curso node 2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nombre\":\"Daniel Mendoza\",\n\t\"email\":\"test5@hotmail.com\",\n\t\"password\":\"password123\"\n}",
+							"raw": "{\n\t\"nombre\":\"usuario\",\n\t\"email\":\"test2@hotmail.com\",\n\t\"password\":\"password123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,7 +43,7 @@
 					"response": []
 				},
 				{
-					"name": "obtener lista",
+					"name": "Lista usuarios",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -54,6 +54,12 @@
 							],
 							"path": [
 								"usuarios"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -102,13 +108,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/usuarios/5e3cb742c0a7651d98e50a56/borrar",
+							"raw": "{{url}}/usuarios/5e41e95f70b49007307b5b20/borrar",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"usuarios",
-								"5e3cb742c0a7651d98e50a56",
+								"5e41e95f70b49007307b5b20",
 								"borrar"
 							]
 						}
@@ -137,13 +143,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/usuarios/5e3b69347f5f0e046c8e0a0e/actualizar",
+							"raw": "{{url}}/usuarios/5e41e95f70b49007307b5b20/actualizar",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"usuarios",
-								"5e3b69347f5f0e046c8e0a0e",
+								"5e41e95f70b49007307b5b20",
 								"actualizar"
 							]
 						}
@@ -151,7 +157,284 @@
 					"response": []
 				}
 			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "{{token}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a7247e3a-6040-4568-94b8-331d68a63fb3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9cac0142-27e8-4513-b239-1cf6c6764ca8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f3971be-1330-49ab-b2eb-17f1c41ddce5",
+								"exec": [
+									"let token = pm.response.json().token;",
+									"pm.environment.set(\"token\", token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test2@hotmail.com\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "categorias",
+			"item": [
+				{
+					"name": "crear categoria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\":\"categoria1\",\n\t\"usuario_id\":\"5e41f87741c0c40eacc0f6e0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categorias/crear",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/categorias",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detalle categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/categorias/5e41ff9dcd738a268cab73c0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								"5e41ff9dcd738a268cab73c0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar categoria",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\":\"editada1\",\n\t\"usuario_id\":\"5e41f87741c0c40eacc0f6e0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categorias/5e41ff9dcd738a268cab73c0/actualizar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								"5e41ff9dcd738a268cab73c0",
+								"actualizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar categoria",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/categorias/5e41ff9dcd738a268cab73c0/borrar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								"5e41ff9dcd738a268cab73c0",
+								"borrar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "{{token}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "token",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c78f283f-4c1e-43fe-9cd8-94510be72d4a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ca15e9d-d72d-4eb3-9437-e5ee4d4f6652",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f5331baf-841e-435f-9312-07e9f285a6ad",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "17a44739-4e8b-49fd-84cb-95b7f7c51ba8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}
