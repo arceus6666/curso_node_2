@@ -11,6 +11,10 @@ const categoriaSchema = new Schema({
     type: Boolean,
     default: true
   },
+  img: {
+    type: String,
+    default: null
+  },
   usuario_id: {
     type: mongoose.Types.ObjectId,
     ref: 'Usuario'
