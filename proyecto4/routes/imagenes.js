@@ -6,7 +6,8 @@ const router = express.Router();
 
 router.get('/:img', (req, res) => {
   const pathImagen = path.resolve(__dirname, `../uploads/${req.params.img}`);
-  if (!fs.existsSync(pathImagen)) return res.status(404).json({ mensaje: 'No existe el recurso' });
+  const pathDefault = path.resolve(__dirname, `../assets/default.png`);
+  if (!fs.existsSync(pathImagen)) return res.sendFile(pathDefault);
   return res.sendFile(pathImagen);
 });
 
