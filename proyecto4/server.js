@@ -8,6 +8,7 @@ dotenv.config();
 
 app.use('/usuarios', [verificaToken, verificaUsuario], require('./routes/usuario'));
 app.use('/categorias', [verificaToken, verificaUsuario], require('./routes/categoria'));
+app.use('/imagenes', require('./routes/imagenes'));
 app.use('/', require('./routes/auth'));
 // app.use('/', require('./routes/lenguaje'));
 

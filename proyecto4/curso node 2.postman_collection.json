@@ -291,7 +291,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/categorias?p=0&r=0",
+							"raw": "{{url}}/categorias?p=1&r=2",
 							"host": [
 								"{{url}}"
 							],
@@ -301,11 +301,11 @@
 							"query": [
 								{
 									"key": "p",
-									"value": "0"
+									"value": "1"
 								},
 								{
 									"key": "r",
-									"value": "0"
+									"value": "2"
 								}
 							]
 						}
@@ -419,7 +419,7 @@
 								{
 									"key": "imagen",
 									"type": "file",
-									"src": "/C:/Users/Administrador/Desktop/.png"
+									"src": "/C:/Users/Administrador/Desktop/vsc.jpg"
 								}
 							]
 						},
@@ -492,6 +492,30 @@
 							""
 						]
 					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "imagenes",
+			"item": [
+				{
+					"name": "Servir imagen",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/imagenes/5e435a6b4a98ec3648246335-1581552070154.jpg",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"imagenes",
+								"5e435a6b4a98ec3648246335-1581552070154.jpg"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
