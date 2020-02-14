@@ -19,6 +19,26 @@ io.on('connection', (client) => {
   client.on('disconnect', () => {
     console.log('Usuario desconectado');
   });
+
+  client.on('enviarMensaje', (data, callback) => {
+    console.log(data)
+    callback(client.id);
+  });
+
+  client.on('enviarMensaje2', (data, callback) => {
+    console.log(data)
+    callback(`${client.id}-2`);
+  });
+
+  client.emit('enviarMensaje', {
+    nombre: 'Admin',
+    mensaje: 'Bienvenido'
+  });
+
+  client.broadcast.emit('enviarMensaje', {
+    nombre: 'Admin',
+    mensaje: 'A todos'
+  });
 });
 
 

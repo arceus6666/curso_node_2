@@ -5,10 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="js/libs/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
   <script src="socket.io/socket.io.js"></script>
+  <h1>sockets</h1>
+  <button type="button" id="enviar">Enviar</button>
+  <br><br>
+  <button type="button" id="enviar2">Enviar2</button>
+
+
   <script>
     var socket = io();
 
@@ -21,8 +28,36 @@
     socket.on('disconnect', function () {
       console.log('Perdimos la conexion con el servidor');
     });
+
+    socket.on('enviarMensaje', function (data) {
+      // alert(data)
+      console.log(data)
+    })
+
+    $("#enviar").click(function (event) {
+      console.log('works');
+      socket.emit('enviarMensaje', {
+        usuario: 'Daniel',
+        mensaje: 'Hola socket'
+      }, function (data) {
+        console.log('event emitted');
+        console.log(data)
+      });
+    });
+
+    $('#enviar2').click(function (event) {
+      console.log('works2');
+      socket.emit('enviarMensaje2', {
+        usuario: '2',
+        mensaje: '2'
+      }, function (data2) {
+        console.log('event2 emitted');
+        console.log(data2);
+      });
+    });
+
+
   </script>
-  <h1>sockets</h1>
 </body>
 
 </html>
